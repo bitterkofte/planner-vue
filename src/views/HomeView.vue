@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="projects.length">
+      <div v-for="project in projects" :key="project.id">
+        <ProjectCard :project="project" />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import { onMounted, ref } from 'vue';
+import ProjectCard from '@/components/ProjectCard.vue'
+let projects = ref([]);
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+onMounted(() => {
+  fetch('http://localhost:3000/projects')
+  .then(res => res.json())
+  .then(data => projects.value = data)
+  .catch(err => console.error(err.message))
+})
 </script>
