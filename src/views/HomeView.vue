@@ -2,7 +2,7 @@
   <div class="home">
     <div v-if="projects.length">
       <div v-for="project in projects" :key="project.id">
-        <ProjectCard :project="project" />
+        <ProjectCard :project="project" @delete="deleteHandler" />
       </div>
     </div>
   </div>
@@ -19,4 +19,8 @@ onMounted(() => {
   .then(data => projects.value = data)
   .catch(err => console.error(err.message))
 })
+
+const deleteHandler = (id) => {
+  projects.value = projects.value.filter(p => p.id !== id)
+}
 </script>

@@ -5,7 +5,7 @@
       <h3 @click="showDetails = !showDetails">{{ project.title }}</h3>
       <div class="icons">
         <span class="material-icons">edit </span>
-        <span class="material-icons"> delete_forever </span>
+        <span @click="deleteHandler" class="material-icons"> delete_forever </span>
         <span class="material-icons"> done </span>
       </div>
     </div>
@@ -17,14 +17,23 @@
 
 //SCRIPT
 <script setup>
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
+import { defineEmits } from 'vue'
 
+const emit = defineEmits(["delete"]);
 const props = defineProps(["project"]);
+
 let showDetails = ref(false);
-const uri = `http://localhost:3000/projects/${project.id}`
+const uri = `http://localhost:3000/projects/${props.project.id}`
+
 const deleteHandler = () => {
   fetch(uri, { method: 'DELETE' })
+  .then(() => emit('delete', props.project.id))
+  .catch(err => console.error(err.message))
 }
+
+// onMounted(() => console.log('ONMOUNTED!!!'))
+// onUnmounted(() => console.log("unmounted"))
 </script>
 
 //STYLE
