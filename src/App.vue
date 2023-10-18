@@ -1,9 +1,11 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-  </nav>
+  <MainNavbar />
   <router-view/>
 </template>
+
+<script setup>
+import MainNavbar from '@/components/MainNavbar.vue'
+</script>
 
 <style>
 #app {

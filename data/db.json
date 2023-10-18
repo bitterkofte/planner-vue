@@ -2,15 +2,21 @@
   "projects": [
     {
       "id": 1,
-      "title": "Create new homepage banner",
+      "title": "Create new homepage banner!!",
       "details": "Lorem ipsum",
-      "complete": false
+      "complete": true
     },
     {
       "id": 2,
       "title": "Make marketing email",
-      "details": "Lorem ipsum",
-      "complete": true
+      "details": "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum\nahahha\nah\nas",
+      "complete": false
+    },
+    {
+      "title": "hasan talha",
+      "details": "çelik",
+      "complete": false,
+      "id": 3
     }
   ]
 }
