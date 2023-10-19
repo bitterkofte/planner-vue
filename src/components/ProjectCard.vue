@@ -116,11 +116,11 @@ h3 {
   cursor: not-allowed;
 } */
 .material-icons.disabled {
-  color: red;
+  color: #000000;
   cursor: not-allowed;
 }
 .material-icons.disabled:hover {
-  color: rgb(0, 0, 0);
+  color: #000000;
   text-shadow: 0 0 7px #373737, 0 0 10px #515151, 0 0 15px #7a7a7a,
     0 0 23px #9d9d9d;
 }
